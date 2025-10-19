@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+:root {
+  --main: #66a5ae;
+  --secondary: #c4dfe6;
+  --font: white;
+}
+.hide {
+  pointer-events: none;
+  opacity: 60%;
+  color: var(--main);
+}
+.quiz-box {
+  width: 650px;
+  height: max-content;
+  background: var(--main);
+  padding: 10px;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.quiz-box .loader {
+  height: 5px;
+  width: 100%;
+  background: white;
+  overflow: hidden;
+  position: relative;
+}
+.question-box {
+  background: var(--secondary);
+  font-size: 18px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.quiz-box .timer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 0;
+  margin: 10px;
+  color: var(--font);
+
+  span {
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 20px;
+  }
+
+  p {
+    letter-spacing: 1px;
+  }
+}
+.quiz-box .loader::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 5px;
+  width: 0%;
+  background: blue;
+  animation: loading 300s linear;
+  z-index: 1;
+}
+@keyframes loading {
+  to {
+    width: 100%;
+  }
+}
+.question-box .question {
+  font-size: 22px;
+  font-weight: bold;
+}
+.question-box ul {
+  width: 100%;
+}
+.question-box li:hover {
+  border: 1px solid white;
+}
+.question-box li {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  list-style: none;
+  border: 1px solid gray;
+  margin-bottom: 5px;
+  cursor: pointer;
+  padding: 10px 15px;
+  margin: 10px 0;
+}
+.question-box .bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.question-box .hint {
+  background: white;
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 30px;
+}
+.question-box .btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.question-box .btn button {
+  color: blue;
+  background: var(--font);
+}
+
+@media (max-width: 750px) {
+  .quiz-box {
+    width: 90%;
+  }
+  .quiz-box .btn {
+    flex-direction: column;
+  }
+}
