@@ -1,9 +1,17 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import IntroPage from "./components/IntroPage";
+import Question from "./components/Question";
+import ScorePage from "./components/ScorePage";
 
 function App() {
   return (
     <>
-      <h1>heloo</h1>
+      <Routes>
+        <Route path="/" element={<IntroPage />} />
+        <Route path="questions/:id" element={<Question />} />
+        <Route path="/score/:score/:total" element={<ScorePage />} />
+      </Routes>
     </>
   );
 }
