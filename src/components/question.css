@@ -118,6 +118,15 @@
     width: 100%;
   }
 }
+.quiz-box .load {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  padding: 20px;
+  color: var(--font);
+  text-transform: uppercase;
+}
 .question-box .question {
   font-size: 22px;
   font-weight: bold;
@@ -157,7 +166,11 @@
   gap: 10px;
 }
 .question-box .btn button {
+  padding: 5px 10px;
+  border: 1px solid var(--secondary);
+  border-radius: 5px 10px;
   color: blue;
+  font-size: 17px;
   background: var(--font);
 }
 
@@ -168,4 +181,53 @@
   .quiz-box .btn {
     flex-direction: column;
   }
+}
+
+.score-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px;
+  gap: 30px;
+  width: 500px;
+}
+.score-page h1 {
+  font-size: 60px;
+}
+.score-page .score-board {
+  position: relative;
+  width: 100%;
+}
+.score-page .score-point {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+}
+.score-page .score-board .datas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  gap: 5px;
+}
+.score-page .score-board .total {
+  color: red;
+}
+.score-page .score-board .correct {
+  color: green;
+}
+.score-page .score-board button {
+  padding: 10px;
+  border-radius: 10px 20px;
+  font-size: 18px;
+  border: 1px solid var(--secondary);
+  margin-top: 10px;
+  color: var(--main);
+}
+.score-page .score-board button:hover {
+  background: var(--main);
+  color: var(--font);
 }

@@ -8,7 +8,7 @@ const Question = () => {
   const [selected, setSelected] = useState([]);
   const [score, setScore] = useState(0);
   const { id } = useParams();
-  const [timer, setTimer] = useState(id * 60);
+  const [timer, setTimer] = useState(id * 30);
   const nextPage = useNavigate();
   const [loading, setLoading] = useState(false);
 
@@ -25,17 +25,19 @@ const Question = () => {
   }, []);
   useEffect(() => {
     if (timer <= 0) return nextPage(`/score/${score}/${id}`);
-
-    const time = setInterval(() => {
+    let time;
+    time = setInterval(() => {
       setTimer((prevTime) => prevTime - 1);
     }, 1000);
-
     return () => clearInterval(time);
   }, [timer]);
   const checkanswer = (e) => {
-    questions?.[count]?.answer == e
-      ? setScore((num) => num + 1)
-      : console.log("wrong");
+    console.log(selected);
+    console.log(questions);
+
+    if (questions?.[count]?.answer == e) {
+      setScore((num) => num + 1);
+    }
     setSelected([...selected, count]);
   };
 
@@ -47,7 +49,7 @@ const Question = () => {
       </div>
       <div className="loader"></div>
       {!loading ? (
-        <p>loading...</p>
+        <p className="load">loading...</p>
       ) : (
         <div className="question-box">
           <div className="question">
@@ -67,7 +69,7 @@ const Question = () => {
                   </li>
                 ))
               ) : (
-                <ul>
+                <ul className={selected.includes(count) ? "hide" : "none"}>
                   <li onClick={() => checkanswer("True")}>true</li>
                   <li onClick={() => checkanswer("False")}>false</li>
                 </ul>

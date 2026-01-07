@@ -5,9 +5,13 @@
 }
 
 body {
+  background: var(--secondary);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--secondary);
   height: 100vh;
+}
+
+button {
+  cursor: pointer;
 }
