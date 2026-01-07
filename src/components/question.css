@@ -16,6 +16,7 @@
   padding: 10px;
   border-radius: 10px;
   transition: 0.2s;
+  margin: 30px;
 }
 
 .intro-page {
@@ -29,6 +30,7 @@
   background: var(--main);
   font-size: 20px;
   gap: 10px;
+  margin: 30px;
 }
 .intro-page p {
   text-align: justify;
@@ -191,6 +193,11 @@
   padding: 30px;
   gap: 30px;
   width: 500px;
+}
+@media (max-width: 650px) {
+  .score-page {
+    width: 400px;
+  }
 }
 .score-page h1 {
   font-size: 60px;
